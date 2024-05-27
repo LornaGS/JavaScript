@@ -1,0 +1,33 @@
+<html>
+
+
+<script>
+
+let fsize = 10
+    function calc(){
+
+
+        Span1.style.left = event.clientX
+        Span1.style.top = event.clientY
+
+        if (event.ctrlKey == true) {
+            fsize++
+
+        }
+
+        if (event.altKey == true) {
+            fsize--
+
+        }
+
+        Span1.style.fontSize = fsize
+    }
+
+</script>
+<body onmousemove="calc()">
+    <span id="Span1" style ="position:absolute;top:200;right:300;"> 
+        Hello
+    </span>
+</body>
+
+</html>

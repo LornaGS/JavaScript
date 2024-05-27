@@ -1,0 +1,64 @@
+<html>
+
+<script>
+
+function countChar(data){
+
+    let count = 0
+
+    for(let i=0; i < data.length; i++) {
+
+       data.substring(i, i + 1 ) 
+
+            count++
+
+        }           
+
+            return count
+}
+
+function validation(){
+
+    errWord.innerHTML = ""
+
+
+if(Word.value == "")
+{
+    CountLetters.value = 0
+    event.preventDefault()
+} else {
+
+    CountLetters.value = countChar(Word.value) 
+
+}
+
+
+
+
+}
+
+
+
+
+</script>
+
+
+<form action="" onsubmit="validation()">
+
+Word: <input id="Word">
+
+<span id ="errWord" style="color:red; visibility:hidden">Name</span>
+<br>
+<br>
+Letter Count : <input id="CountLetters">
+
+
+<br>
+<br>
+<input type="submit" value= "Count letters">
+
+</form>
+
+
+
+</html>

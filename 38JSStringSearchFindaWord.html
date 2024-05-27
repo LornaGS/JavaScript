@@ -1,0 +1,75 @@
+<html>
+<script>
+
+function findChar(data, tofind){
+
+let count = 0
+
+for(let i=0; i < data.length; i++) {
+
+    if (data.substring(i, i + 1 ) == tofind.substring(0,1)){
+
+       if (data.substring(i, i+ tofind.length) == tofind) {
+
+            count++
+            i += tofind.length - 1
+
+       }
+        
+     }
+    }
+    alert(count)
+}
+
+function validation(){
+
+    findErr.innerHTML = ""
+    replaceErr.innerHTML = ""
+    messageErr.innerHTML = ""
+
+if(Find.value == "" && Replace.value =="" && Message.value =="")
+{
+    messageErr.innerHTML = "Please insert something to find & replace"
+    messageErr.style.visibility = "visible"
+    event.preventDefault()
+} else {
+
+    message.value =  findChar(Message.value, Find.value)   //if you find the letter then
+
+    //message.value = "found it"
+    event.preventDefault()
+
+ 
+
+   }
+
+    
+
+ }
+
+</script>
+
+
+<form action="" onsubmit="findChar(Message.value, Find.value)">
+
+    Find: <input id="Find">
+
+    <span id ="findErr" style="color:red; visibility:hidden"></span>
+<br>
+
+<br>
+    Message : <input id="Message">
+<br>
+<br>
+    <span id ="messageErr" style="color:red; visibility:hidden"></span>
+<br>
+<br>
+<input type="submit" value= "Find">
+
+</form>
+
+
+
+
+</html>
+

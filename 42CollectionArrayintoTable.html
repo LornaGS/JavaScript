@@ -1,0 +1,125 @@
+<html>
+
+
+<script>
+
+let employee = [
+    {Name: "Lorna",
+    Location:"Edin",
+    Salary: 2000,
+    department: "IT"},
+
+    {Name: "Lorna2",
+    Location:"Edin",
+    Salary: 1000,
+    department: "IT"}
+
+]
+
+function showEmployees(condition=false){
+
+    table1.innerHTML = ""
+    let tr0 = document.createElement("tr")
+    tr0.innerHTML = "<td> SNo </td> <td> Name </td> <td> Location </td> <td> DEPARTMENT </td><td> Salary </td> <td> Tax </td> <td> Operations </td>"
+
+    table1.appendChild(tr0)
+
+for(let i = 0; i <employee.length; i++){
+
+    if (employee[i].department == depart2.value || condition) {
+ 
+        let tr1 = document.createElement("tr")
+        let tdSno = document.createElement("td")
+        let td1 = document.createElement("td")
+        let td2 = document.createElement("td")
+        let td3 = document.createElement("td")
+        let td4 = document.createElement("td")
+        let td5 = document.createElement("td")
+        let tdOperator = document.createElement("td")
+
+        let btnDelete = document.createElement("input")
+        btnDelete.type = "button"
+        btnDelete.value = "Delete"
+        btnDelete.onclick =  () => {
+
+            let choice = confirm("Are you sure?")
+
+            if (choice == true) {
+
+                employee.splice(i,1) // will remove 1 elements from i 
+                showEmployees()
+
+            }
+        }
+
+    
+    tdOperator.appendChild(btnDelete)
+
+    tdSno.innerHTML = i + 1
+    td1.innerHTML = employee[i].Name
+    td2.innerHTML = employee[i].Location
+    td3.innerHTML = employee[i].department
+    td4.innerHTML = employee[i].Salary
+    td5.innerHTML = employee[i].Salary*0.15
+
+
+ 
+    tr1.appendChild(tdSno)
+    tr1.appendChild(td1)
+    tr1.appendChild(td2)
+    tr1.appendChild(td3)
+    tr1.appendChild(td4)
+    tr1.appendChild(td5)
+    tr1.appendChild(tdOperator)
+
+    table1.appendChild(tr1)
+}
+}
+}
+
+function addEmployee() {
+ 
+     let newEmp =  { 
+       Name: name1.value,
+       Location: add1.value,
+       Salary: salary1.value,
+       department: depart1.value
+     }  
+
+     
+    employee.push(newEmp)
+    showEmployees(true)
+}
+
+
+
+
+
+</script>
+<body onload="showEmployees(true)">
+    Name: <input id="name1"> <br>
+    Address: <input id="add1"> <br>
+    Salary: <input id="salary1"><br> 
+    Department : <select id="depart1"><br>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Sales">Sales</option>
+    </select>
+
+<br>
+    <input type="button" value="New Employee" onclick="addEmployee()">
+    <input type="button" value="filter" onclick="showEmployees()">
+    <select id="depart2">
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Sales">Sales</option>
+    </select>
+<br>
+    <input type="button" value="All Records" onclick="showEmployees()"><br>
+
+<table border ="1" id="table1">
+
+
+</table>
+</body>
+</html>

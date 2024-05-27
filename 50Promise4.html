@@ -1,0 +1,130 @@
+<html>
+<script>
+
+function displaycomments(comms) {
+
+    table1.innerHTML = ""
+    let tr0 = document.createElement("tr")
+    tr0.innerHTML = "<td> postId </td> <td> ID </td> <td> Name </td> <td> Email </td><td> Body </td> "
+
+    table1.appendChild(tr0)
+
+
+   for(let i=0; i< comms.length; i++){
+
+        let tr1 = document.createElement("tr")
+        let td1 = document.createElement("td")
+        let td2 = document.createElement("td")
+        let td3 = document.createElement("td")
+        let td4 = document.createElement("td")
+        let td5 = document.createElement("td")
+
+     //   div1.innerHTML = comms[i].email
+    //document.body.appendChild(div1)
+       
+        
+
+    let btnComments = document.createElement("input")
+        btnComments.type = "button"
+        btnComments.value = "See Comments"
+        btnComments.onclick =  () => {
+
+            let choice = confirm("Are you sure?")
+
+            if (choice == true) {
+
+                 //click on button - get the id of the post and display posts/id of comment/comment and parse the id 
+                table2.innerHTML = ""
+                        let tr0 = document.createElement("tr")
+                        tr0.innerHTML = "<td> UserID </td> <td> id </td> <td> title </td> <td> body </td> "
+
+                        table1.appendChild(tr0)
+
+
+                    for(let i=0; i< comms.length; i++){
+
+                            let tr1 = document.createElement("tr")
+                            let td1 = document.createElement("td")
+                            let td2 = document.createElement("td")
+                            let td3 = document.createElement("td")
+                            let td4 = document.createElement("td")
+                        
+
+                        //   div1.innerHTML = comms[i].email
+                        //document.body.appendChild(div1)
+                        
+                            
+                        td1.innerHTML = comms[i].userId
+                        td2.innerHTML = comms[i].id
+                        td3.innerHTML = comms[i].title
+                        td4.innerHTML = comms[i].body
+                    
+
+                    
+                        tr1.appendChild(td1)
+                        tr1.appendChild(td2)
+                        tr1.appendChild(td3)
+                        tr1.appendChild(td4)
+                    
+                    
+
+                        table1.appendChild(tr1)
+
+
+                        }
+                    }
+
+               // deletes row  comms.splice(i,1) // will remove 1 elements from i 
+               // showEmployees()
+
+            }
+        }
+
+  
+    td1.innerHTML = comms[i].postId
+    td2.innerHTML = comms[i].id
+    td3.innerHTML = comms[i].name
+    td4.innerHTML = comms[i].email
+    td5.innerHTML = comms[i].body
+
+    td5.appendChild(btnComments)
+  
+    tr1.appendChild(td1)
+    tr1.appendChild(td2)
+    tr1.appendChild(td3)
+    tr1.appendChild(td4)
+    tr1.appendChild(td5)
+   
+
+    table1.appendChild(tr1)
+
+
+   }
+
+
+function processreponse(res){
+    
+    let responsepromise =res.json ()
+    responsepromise.then(displaycomments)
+    
+    }
+
+    function showData(){
+
+        let promise = fetch ("https://jsonplaceholder.typicode.com/posts/1/comments")
+    
+        promise.then(processreponse) 
+        
+    }
+
+
+
+</script>
+<body onload="showData()"></body>
+
+<input type="button" value="Display" onclick="showData()"><br>
+
+<table border ="1" id="table1"></table>
+<table border ="1" id="table2"></table>
+</body>
+</html>

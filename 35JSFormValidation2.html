@@ -1,0 +1,104 @@
+<html>
+
+<script>
+    function checkdigits(data){
+        for(let i=0; i<data.length; i++){
+
+            if (data.charCodeAt(i) >= 48 && data.charCodeAt(i) <=57 ){
+                return true
+            } 
+
+        }
+                 return false
+        
+    }
+
+
+    function countCharacter(data, character){
+
+        let count = 0
+
+        for(let i=0; i < data.length; i++) {
+
+            if (data.substring(i, i + 1 ) == character){
+
+                count++
+
+             }
+        
+        
+
+                                 }
+
+                                 return count
+    }
+
+function validation(){
+
+     errName.innerHTML = ""
+     errEmail.innerHTML = ""
+
+     if(nameAdd.value == "")
+     {
+        errName.innerHTML = "Name cannot be empty"
+        errName.style.visibility = "visible"
+        event.preventDefault()
+     } else {
+
+        if(checkdigits(nameAdd.value) == true ){
+
+            errName.innerHTML = "Name cannot have digits"
+            errName.style.visibility = "visible"
+            event.preventDefault()
+        } else {
+            errName.innerHtml = ""
+            event.preventDefault()
+        }
+
+
+     }
+
+     if(emailAdd.value == "")
+     {
+        errEmail.innerHTML = "Email address cannot be empty"
+        errEmail.style.visibility = "visible"
+        event.preventDefault()
+     } else {
+
+        if(countCharacter(emailAdd.value, "@") !=1 || countCharacter(emailAdd.value, ".") ==0){
+
+            errEmail.innerHTML = "Not a valid email address"
+            errEmail.style.visibility = "visible"
+            event.preventDefault()
+
+        } else {
+            errEmail.innerHtml = ""
+            event.preventDefault()
+        }
+
+
+     }
+     
+   
+    }
+
+</script>
+
+
+<form action="http://www.bbc.com" onsubmit="validation()">
+
+    Name: <input id="nameAdd">
+
+    <span id ="errName" style="color:red; visibility:hidden">Name</span>
+<br>
+<br>
+    Email : <input id="emailAdd">
+
+    <span id ="errEmail" style="color:red; visibility:hidden">Email</span>
+<br>
+<br>
+<input type="submit" value= "Create Account">
+
+</form>
+
+</html>

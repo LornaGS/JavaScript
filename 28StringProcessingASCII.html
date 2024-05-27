@@ -1,0 +1,65 @@
+<html>
+<script>
+    function processingLC() {
+
+        
+        let data = msg1.value
+
+
+        for (let i = 0; i < data.length; i++) {
+ 
+            if (data.charCodeAt(i) >=97 &&  data.charCodeAt(i) <=122)
+                {
+                msg2.value += data.substring(i, i + 1)
+            }
+        }
+    }
+
+    function processingDigits() {
+
+        
+let data = msg1.value
+
+
+for (let i = 0; i < data.length; i++) {
+
+    if (data.charCodeAt(i) >=47 &&  data.charCodeAt(i) <=57)
+        {
+        msg2.value += data.substring(i, i + 1)
+    }
+}
+}
+
+function processingUC() {
+
+        
+let data = msg1.value
+
+
+for (let i = 0; i < data.length; i++) {
+
+    if (data.charCodeAt(i) >=65 &&  data.charCodeAt(i) <=90)
+        {
+        msg2.value += data.substring(i, i + 1)
+    }
+}
+}
+</script>
+ 
+
+<br>
+Message1:<input id="msg1">
+<br>
+<input type="button" value="Copy LOWER case" onclick="processingLC()">
+<BR>
+
+    <input type="button" value="Copy Upper case" onclick="processingUC()">
+    <br>
+    <input type="button" value="Copy Digits" onclick="processingDigits()">
+    <br>
+Message 2<input id="msg2">
+<br>
+<br>
+ 
+ 
+</html>

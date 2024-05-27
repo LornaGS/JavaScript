@@ -1,0 +1,87 @@
+<html>
+<script>
+    function add() {
+        let num1 = txt1.value
+        let num2 = txt2.value
+ 
+        if (num1 == "") {
+            alert("First Number is Missing")
+            txt1.focus()
+        } else {
+            if (num2 == "") {
+                alert("Second Number is Missing")
+                txt2.focus()
+            } else {
+                let result = parseInt(num1) + parseInt(num2)
+                txt3.value = result
+            }
+        }
+    }
+
+    function Sub() {
+        let num1 = txt1.value
+        let num2 = txt2.value
+ 
+        if (num1 == "") {
+            alert("First Number is Missing")
+            txt1.focus()
+        } else {
+            if (num2 == "") {
+                alert("Second Number is Missing")
+                txt2.focus()
+            } else {
+                let result = parseInt(num1) - parseInt(num2)
+                txt3.value = result
+            }
+        }
+    }
+
+    function multi() {
+        let num1 = txt1.value
+        let num2 = txt2.value
+ 
+        if (num1 == "") {
+            alert("First Number is Missing")
+            txt1.focus()
+        } else {
+            if (num2 == "") {
+                alert("Second Number is Missing")
+                txt2.focus()
+            } else {
+                let result = parseInt(num1) * parseInt(num2)
+                txt3.value = result
+            }
+        }
+    }
+
+    function divide() {
+        let num1 = txt1.value
+        let num2 = txt2.value
+ 
+        if (num1 == "") {
+            alert("First Number is Missing")
+            txt1.focus()
+        } else {
+            if (num2 == "") {
+                alert("Second Number is Missing")
+                txt2.focus()
+            } else {
+                let result = parseInt(num1) / parseInt(num2)
+                txt3.value = result
+            }
+        }
+    }
+</script>
+<input id="txt1">
+<br>
+<input id="txt2">
+<br>
+<input id="btn1" type="Button" value="Addition" onclick="add()">
+<input id="btn2" type="Button" value="Subtract" onclick="Sub()">
+<input id="btn3" type="Button" value="Multiply" onclick=" multi()">
+<input id="btn4" type="Button" value="Divide" onclick="divide()">
+<br>
+<input id="txt3">
+<br>
+ 
+</html>
